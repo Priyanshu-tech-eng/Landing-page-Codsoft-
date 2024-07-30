@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+/* General Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #FF4500;
+    --text-color: #ffffff;
+    --bg-color: #1c1c1c;
+    --hover-bg-color: #FF4500;
+    --neon-box-shadow: 0 0 20px #007BFF, 0 0 30px #007BFF, 0 0 40px #007BFF, 0 0 70px #007BFF, 0 0 80px #007BFF, 0 0 100px #007BFF, 0 0 150px #007BFF;
+    --font-family: 'Ubuntu', sans-serif;
+}
+
+/* Body */
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* Header */
+header {
+    background: var(--primary-color);
+    color: var(--text-color);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--primary-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 1000; /* Ensure it is above other content */
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar-menu a {
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 0.3rem;
+    transition: background 0.3s;
+}
+
+.navbar-menu a:hover {
+    background: var(--secondary-color);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    height: 80vh; /* Adjust height as needed */
+    color: var(--text-color);
+    overflow: hidden;
+    text-align: center; /* Center-align the text */
+    padding-top: 4rem; /* Adjust based on navbar height */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('gym.jpg'); /* Set gym image as background */
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px); /* Slight blur effect */
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Ensure text is above the background */
+    max-width: 600px; /* Limit the width of the text block */
+    margin: 0 auto; /* Center the content horizontally */
+}
+
+.hero-content h1 {
+    font-size: 2.5rem; /* Adjust font size as needed */
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem; /* Adjust font size as needed */
+    margin-bottom: 2rem;
+}
+
+.countdown {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.hero-buttons {
+    margin-top: 1rem;
+}
+
+.btn {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.3rem;
+    margin: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    background: var(--primary-color);
+    box-shadow: var(--neon-box-shadow);
+}
+
+/* About Section */
+.about {
+    padding: 2rem;
+    color: var(--text-color);
+}
+
+.about ul {
+    margin-top: 1rem;
+    line-height: 1.8;
+}
+
+/* Services Section */
+.services {
+    padding: 2rem;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.service-card {
+    flex: 1;
+    min-width: 250px;
+    padding: 1rem;
+    background: rgba(0, 0, 255, 0.2);
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 5px solid;
+    border-radius: 0.5rem; /* Square border */
+    border-color: rgba(255, 0, 150, 0.7);
+    animation: rainbow-border 3s linear infinite;
+}
+
+@keyframes rainbow-border {
+    0% { border-color: red; }
+    14% { border-color: orange; }
+    28% { border-color: yellow; }
+    42% { border-color: green; }
+    57% { border-color: blue; }
+    71% { border-color: indigo; }
+    85% { border-color: violet; }
+    100% { border-color: red; }
+}
+
+.price {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* Compare Section */
+.compare {
+    padding: 2rem;
+    color: var(--text-color);
+}
+
+.compare table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(0, 0, 255, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.compare th, .compare td {
+    padding: 1rem;
+    border: 1px solid var(--primary-color);
+    text-align: center;
+}
+
+.compare th {
+    background: var(--primary-color);
+    color: var(--text-color);
+}
+
+/* Contact Section */
+.contact {
+    padding: 2rem;
+    color: var(--text-color);
+}
+
+.contact a {
+    color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 1rem;
+}
